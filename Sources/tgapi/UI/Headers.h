@@ -4,6 +4,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import "../Constants.h"
+#import "roothide.h"
+#import "NSLogDebug.h"
 
 @interface TGExtra : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @end

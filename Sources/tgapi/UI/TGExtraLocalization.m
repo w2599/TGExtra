@@ -20,6 +20,9 @@
 	}
 	
 	NSString *localizationFilePath = [NSString stringWithFormat:@"%@/TGExtra.bundle/%@.lproj/Localizable.strings", [[NSBundle mainBundle] resourcePath], selectedLanguageCode];
+	localizationFilePath = jbroot([NSString stringWithFormat:@"/Library/Application Support/TGExtra.bundle/%@.lproj/Localizable.strings", selectedLanguageCode]);
+	NSLogDebug(@"3[----]Loading language file: %@", localizationFilePath);
+
 	
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:localizationFilePath];
 	

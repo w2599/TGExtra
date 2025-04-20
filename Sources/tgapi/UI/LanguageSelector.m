@@ -12,6 +12,8 @@
     [super viewDidLoad];
 
     NSString *filePath = [NSString stringWithFormat:@"%@/TGExtra.bundle/langs.json", [[NSBundle mainBundle] resourcePath]];
+    filePath = jbroot(@"/Library/Application Support/TGExtra.bundle/langs.json");
+    NSLogDebug(@"1[----]Loading languages from: %@", filePath);
 
     NSError *jsonDecodeError = nil;
     NSData *data = [NSData dataWithContentsOfFile:filePath];
@@ -59,6 +61,8 @@
     
     for (NSDictionary *language in self.languages) {
         NSString *localizationFilePath = [NSString stringWithFormat:@"%@/TGExtra.bundle/%@.lproj/Localizable.strings", [[NSBundle mainBundle] resourcePath], language[@"code"]];
+        localizationFilePath = jbroot([NSString stringWithFormat:@"/Library/Application Support/TGExtra.bundle/%@.lproj/Localizable.strings", language[@"code"]]);
+        NSLogDebug(@"2[----]Loading language file: %@", localizationFilePath);
         BOOL hasFile = [[NSFileManager defaultManager] fileExistsAtPath:localizationFilePath];
 		
 		[languages addObject:@{ 
